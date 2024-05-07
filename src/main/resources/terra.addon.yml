@@ -1,0 +1,11 @@
+schema-version: 1
+contributors:
+  - SettingDust
+id: language-hocon
+version: ${version}
+entrypoints:
+  - "settingdust.terra.hoconlanguage.TerraHoconLanguage"
+website:
+  issues: https://github.com/SettingDust/TerraHoconLanguage/issues
+  source: https://github.com/SettingDust/TerraHoconLanguage
+license: MIT License
