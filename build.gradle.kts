@@ -16,8 +16,6 @@ dependencies {
     compileOnly("com.dfsek.terra:manifest-addon-loader:1.0.0-BETA+fd6decc70")
 
     shadow("com.dfsek.tectonic", "hocon", "4.2.1")
-
-    shadow("com.typesafe:config:1.4.3")
 }
 
 tasks {
@@ -27,5 +25,25 @@ tasks {
         filesMatching("terra.addon.yml") {
             expand(properties)
         }
+    }
+
+    shadowJar {
+        configurations = listOf(project.configurations.shadow.get())
+
+        archiveClassifier = ""
+
+        dependencies {
+            exclude(dependency("com.dfsek.tectonic:tectonic"))
+            exclude(dependency("com.dfsek.tectonic:common"))
+            exclude(dependency("commons-io:commons-io"))
+        }
+
+        mergeServiceFiles()
+    }
+
+    jar {
+        finalizedBy(shadowJar)
+
+        archiveClassifier = "dev"
     }
 }
