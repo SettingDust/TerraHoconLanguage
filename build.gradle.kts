@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "settingdust.terra.hoconlanguage"
-version = semver.semVersion
+version = semver.semVersion.toString()
 
 repositories {
     mavenCentral()
