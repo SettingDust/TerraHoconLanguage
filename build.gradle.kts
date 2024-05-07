@@ -1,10 +1,11 @@
 plugins {
     id("java")
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("com.github.jmongard.git-semver-plugin") version "0.12.6"
 }
 
 group = "settingdust.terra.hoconlanguage"
-version = "0.1.0"
+version = semver.semVersion
 
 repositories {
     mavenCentral()
